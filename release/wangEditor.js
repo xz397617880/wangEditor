@@ -548,9 +548,13 @@ var config = {
     // 默认菜单配置
     menus: ['head', 'bold', 'fontSize', 'fontName', 'italic', 'underline', 'strikeThrough', 'foreColor', 'backColor', 'link', 'list', 'justify', 'quote', 'emoticon', 'image', 'table', 'video', 'code', 'undo', 'redo'],
 
-    fontNames: ['宋体', '微软雅黑', 'Arial', 'Tahoma', 'Verdana'],
+    fontNames: ['宋体', '微软雅黑', '楷体', '黑体', '隶书','Arial', 'Tahoma', 'Verdana','arial black','impact','comic sans ms','times new roman'],
 
-    colors: ['#000000', '#eeece0', '#1c487f', '#4d80bf', '#c24f4a', '#8baa4a', '#7b5ba1', '#46acc8', '#f9963b', '#ffffff'],
+    colors: ['transparent','#FFFFFF','#000000','#FFB6C1','#DC143C','#FFF0F5','#DB7093','#FF69B4','#FF1493',
+        '#C71585','#DA70D6','#D8BFD8','#DDA0DD','#EE82EE','#FF00FF','#8B008B','#800080','#BA55D3','#9400D3',
+        '#9932CC','#4B0082','#8A2BE2','#9370DB','#7B68EE','#1c487f','#6A5ACD','#483D8B','#E6E6FA','#F8F8FF',
+        '#0000FF','#0000CD','#191970','#00008B','#000080','#4169E1','#6495ED','#B0C4DE','#F0F8FF','#4682B4','#87CEFA','#87CEEB'
+    ],
 
     // // 语言配置
     // lang: {
@@ -1806,7 +1810,12 @@ function Justify(editor) {
         width: 100,
         $title: $('<p>对齐方式</p>'),
         type: 'list', // droplist 以列表形式展示
-        list: [{ $elem: $('<span><i class="w-e-icon-paragraph-left"></i> 靠左</span>'), value: 'justifyLeft' }, { $elem: $('<span><i class="w-e-icon-paragraph-center"></i> 居中</span>'), value: 'justifyCenter' }, { $elem: $('<span><i class="w-e-icon-paragraph-right"></i> 靠右</span>'), value: 'justifyRight' }],
+        list: [
+            { $elem: $('<span><i class="w-e-icon-paragraph-left"></i> 局左对齐</span>'), value: 'justifyLeft' }, 
+            { $elem: $('<span><i class="w-e-icon-paragraph-center"></i> 居中对齐</span>'), value: 'justifyCenter' }, 
+            { $elem: $('<span><i class="w-e-icon-paragraph-right"></i> 局右对齐</span>'), value: 'justifyRight' },
+            { $elem: $('<span><i class="w-e-icon-paragraph-center"></i> 两端对齐</span>'), value: 'justifyFull' }
+        ],
         onClick: function onClick(value) {
             // 注意 this 是指向当前的 List 对象
             _this._command(value);
